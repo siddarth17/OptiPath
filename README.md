@@ -24,6 +24,7 @@ OptiPath is a full-stack web application designed to solve the Traveling Salesma
 - **MongoDB**: Database for storing user information and saved routes
 - **Mongoose**: ODM library for MongoDB and Node.js
 - **JSON Web Tokens (JWT)**: For secure authentication
+- **Mongoose**: To utilize NLP model to calculate predictions and send to the Express.js server.
 
 ### Machine Learning
 - **TensorFlow.js**: For implementing and running the ML model
