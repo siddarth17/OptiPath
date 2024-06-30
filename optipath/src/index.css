@@ -1,0 +1,40 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #007bff;
+  color: white;
+}
+
+.app-header h1 {
+  margin: 0;
+}
+
+.app-header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.app-header nav ul li {
+  margin-left: 20px;
+}
+
+.app-header nav ul li a,
+.app-header nav ul li button {
+  color: white;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+.app-header nav ul li:first-child {
+  margin-left: 0;
+}

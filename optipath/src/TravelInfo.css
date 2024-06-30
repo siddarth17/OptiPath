@@ -1,0 +1,53 @@
+.travel-mail-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif; /* Ensures font consistency */
+}
+
+.travel-mail-container h2 {
+  margin-bottom: 20px;
+}
+
+.travel-mail-container .info{
+  color: #007bff;
+}
+.travel-mail-container textarea {
+  width: 100%;
+  height: 350px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 15px; /* Rounded corners for the textarea */
+  font-family: inherit; /* Ensures font consistency */
+}
+
+.travel-mail-container button {
+  padding: 10px 10px;
+  max-width: 400px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: block; 
+  margin-left: 110px; /* Aligns the button to the right */
+  margin-top: 10px;
+}
+
+.travel-mail-container .result {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.travel-mail-container .disclaimer {
+  margin-top: 75px;
+  font-size: 0.8em;
+  text-align: center;
+  color: black;
+}
+
+.travel-mail-container .citations {
+  margin-top: 20px;
+  font-size: 0.8em;
+  text-align: center;
+  color: black;
+}

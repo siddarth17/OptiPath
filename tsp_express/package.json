@@ -1,0 +1,28 @@
+{
+  "name": "tsp_express",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"node server.js\" \"python3 infopredictor.py\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.8.0",
+    "mongoose": "^8.4.4",
+    "natural": "^5.2.3",
+    "stopword": "^2.0.5"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}

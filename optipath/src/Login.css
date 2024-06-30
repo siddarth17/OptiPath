@@ -1,0 +1,76 @@
+.login-signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Align items to the center horizontally */
+    justify-content: flex-start;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    padding-top: 30px; 
+}
+
+.note {
+    margin-bottom: 0.1px;
+    text-align: left;
+    width: 100%;
+    max-width: 800px;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+.note h2{
+    font-size: 17px;
+    color: #007bff;
+}
+
+.loginform-container {
+    display: flex;
+    justify-content: center; /* Center the forms horizontally */
+    width: 100%;
+    max-width: 800px;
+    margin-top: 0.1px; /* Optional: Adjust top margin to move forms closer to note */
+}
+
+.login-form,
+.signup-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 45%; /* Control width to ensure forms do not stretch too much */
+    margin: 0 10px; /* Reduce side margins */
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 15px; /* Smaller bottom margin */
+}
+
+input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px; /* Smaller bottom margin for a tighter form */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0; /* Adjusted padding for a more compact look */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
