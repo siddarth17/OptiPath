@@ -16,7 +16,7 @@ OptiPath is a full-stack web application designed to solve the Traveling Salesma
 - **React.js**: For building the user interface
 - **React Router**: For handling navigation within the app
 - **Axios**: For making HTTP requests to the backend
-- **Google Maps API**: For map rendering, geocoding, and distance calculations
+- **Google Maps API**: For map rendering, geocoding, and distance matrix calculations
 
 ### Backend
 - **Node.js**: Runtime environment for the server
