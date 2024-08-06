@@ -221,7 +221,7 @@ const TSPSolver = ({ isLoggedIn, onSavePath }) => {
       
         try {
           const validLocations = locations.filter((location) => location.trim() !== '');
-          const response = await axios.post('http://localhost:3001/solve-tsp', { locations: validLocations });
+          const response = await axios.post('http://18.144.66.232:3001/solve-tsp', { locations: validLocations });
           if (response.data.minCost === -1) {
             setError(response.data.message || "Locations are too far apart and cannot be travelled by land.");
           } else {
@@ -250,7 +250,7 @@ const TSPSolver = ({ isLoggedIn, onSavePath }) => {
         if (isLoggedIn) {
             try {
               const token = localStorage.getItem('token');
-              await axios.post('http://localhost:3001/save-path', 
+              await axios.post('http://18.144.66.232:3001/save-path', 
                 { locations, minCost, path },
                 { headers: { 'Authorization': token } }
               );

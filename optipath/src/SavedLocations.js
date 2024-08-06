@@ -11,7 +11,7 @@ const SavedLocations = () => {
     const fetchSavedPaths = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:3001/saved-paths', {
+        const response = await axios.get('http://18.144.66.232:3001/saved-paths', {
           headers: { 'Authorization': token }
         });
         setSavedPaths(response.data);

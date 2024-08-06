@@ -16,7 +16,7 @@ const TravelMail = () => {
             return;
         }
         try {
-            const response = await fetch('http://localhost:3001/predict-info', {
+            const response = await fetch('http://18.144.66.232:3001/predict-info', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

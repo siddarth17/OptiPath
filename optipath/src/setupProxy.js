@@ -5,7 +5,7 @@ module.exports = function (app) {
   app.use(
     '/predict-email',
     createProxyMiddleware({
-      target: 'http://localhost:3001',
+      target: 'http://18.144.66.232:3001/',
       changeOrigin: true,
     })
   );

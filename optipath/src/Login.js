@@ -17,7 +17,7 @@ const LoginSignUp = ({ onLogin }) => {
         e.preventDefault();
         setLoginError('');
         try {
-            const response = await axios.post('http://localhost:3001/login', {
+            const response = await axios.post('http://18.144.66.232:3001/login', {
                 email: loginEmail,
                 password: loginPassword
             });
@@ -38,7 +38,7 @@ const LoginSignUp = ({ onLogin }) => {
             return;
         }
         try {
-            await axios.post('http://localhost:3001/register', {
+            await axios.post('http://18.144.66.232:3001/register', {
                 email: signupEmail,
                 password: signupPassword
             });
