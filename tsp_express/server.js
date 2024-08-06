@@ -16,10 +16,7 @@ app.use(bodyParser.json());
 const GOOGLE_MAPS_API_KEY = 'AIzaSyAnEwfF0Id73eHfO5E4XzLcVgM4SDudxLk';
 
 // MongoDB connection
-mongoose.connect('mongodb://localhost:27017/tsp_app', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect('mongodb://localhost:27017/tsp_app');
 
 // User Schema
 const userSchema = new mongoose.Schema({
