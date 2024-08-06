@@ -36,6 +36,16 @@ const pathSchema = new mongoose.Schema({
 
 const Path = mongoose.model('Path', pathSchema);
 
+const corsOptions = {
+    origin: 'http://18.144.66.232:3000',  
+    optionsSuccessStatus: 200, 
+    credentials: true,  
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE"
+};
+  
+app.use(cors(corsOptions));
+  
+
 async function createDistanceMatrix(locations) {
     const MAX_LOCATIONS_PER_BATCH = 10; 
     let distanceMatrix = [];
