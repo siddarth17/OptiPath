@@ -7,22 +7,20 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 app.use(cors()); 
 app.use(express.json());
 app.use(bodyParser.json());
 
-const GOOGLE_MAPS_API_KEY = 'AIzaSyAnEwfF0Id73eHfO5E4XzLcVgM4SDudxLk';
+const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY;
 
-// MongoDB connection
-mongoose.connect('mongodb://myAdminUser:myAdminPassword@localhost:27017/tsp_app', {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     authSource: 'admin' 
 });
 
-// User Schema
 const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
@@ -30,7 +28,6 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-// Path Schema
 const pathSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   locations: [String],
@@ -41,14 +38,13 @@ const pathSchema = new mongoose.Schema({
 const Path = mongoose.model('Path', pathSchema);
 
 const corsOptions = {
-    origin: 'http://18.144.66.232:3000',  
+    origin: process.env.FRONTEND_URL,
     optionsSuccessStatus: 200, 
     credentials: true,  
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE"
 };
-  
+
 app.use(cors(corsOptions));
-  
 
 async function createDistanceMatrix(locations) {
     const MAX_LOCATIONS_PER_BATCH = 10; 
@@ -63,7 +59,7 @@ async function createDistanceMatrix(locations) {
                 params: {
                     origins: batchOrigins.join('|'),
                     destinations: batchDestinations.join('|'),
-                    key: GOOGLE_MAPS_API_KEY,
+                    key: process.env.GOOGLE_MAPS_API_KEY,
                 },
             });
 
@@ -80,7 +76,7 @@ async function createDistanceMatrix(locations) {
                     const globalDestIndex = j + destIdx;
                     if (element.status !== 'OK') {
                         console.error(`No valid route from ${batchOrigins[idx]} to ${batchDestinations[destIdx]}`);
-                        distanceMatrix[globalOriginIndex][globalDestIndex] = Infinity; // Use Infinity to represent no valid route
+                        distanceMatrix[globalOriginIndex][globalDestIndex] = Infinity; 
                     } else {
                         distanceMatrix[globalOriginIndex][globalDestIndex] = element.distance.value;
                     }
@@ -184,7 +180,6 @@ app.post('/predict-info', async (req, res) => {
     }
 });
 
-// User registration
 app.post('/register', async (req, res) => {
     try {
       const { email, password } = req.body;
@@ -193,13 +188,11 @@ app.post('/register', async (req, res) => {
       await user.save();
       res.status(201).json({ message: 'User registered successfully' });
     } catch (error) {
-      console.error('Registration failed:', error); // Ensure you log the error
+      console.error('Registration failed:', error); 
       res.status(500).json({ error: 'Registration failed', message: error.message });
     }
 });
 
-  
-  // User login
 app.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -218,7 +211,6 @@ app.post('/login', async (req, res) => {
     }
 });
 
-  // Save path
 app.post('/save-path', verifyToken, async (req, res) => {
     try {
       const { locations, minCost, path } = req.body;
@@ -230,7 +222,6 @@ app.post('/save-path', verifyToken, async (req, res) => {
     }
 });
   
-// Get saved paths
 app.get('/saved-paths', verifyToken, async (req, res) => {
     try {
         const paths = await Path.find({ userId: req.userId });

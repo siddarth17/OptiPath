@@ -146,11 +146,10 @@ const TSPSolver = ({ isLoggedIn, onSavePath }) => {
             });
             map.fitBounds(bounds);
         
-            // Assume path and locations array indices align correctly.
             filteredCoordinates.forEach((coord, index) => {
-            const locationIndex = path[index]; // Get the actual index from the path array
+            const locationIndex = path[index]; 
             const labelText = `${index + 1}`;
-            if (!(index === path.length - 1 && path[0] === locationIndex)) { // Check if it's the last index and it matches the first path index
+            if (!(index === path.length - 1 && path[0] === locationIndex)) { 
                 const label = new window.google.maps.Marker({
                 position: coord,
                 map: map,
@@ -242,7 +241,7 @@ const TSPSolver = ({ isLoggedIn, onSavePath }) => {
         setLocations(newLocations);
     
         const newValidLocations = [...validLocations];
-        newValidLocations[index] = true; // Set to true as the location is now validated
+        newValidLocations[index] = true; 
         setValidLocations(newValidLocations);
     };
 
@@ -275,7 +274,6 @@ const TSPSolver = ({ isLoggedIn, onSavePath }) => {
             if (place.formatted_address) {
                 handleSelect(place.formatted_address, index);
             } else {
-                // Handle the case where the autocomplete does not return a valid address
                 const newValidLocations = [...validLocations];
                 newValidLocations[index] = false;
                 setValidLocations(newValidLocations);
@@ -285,7 +283,6 @@ const TSPSolver = ({ isLoggedIn, onSavePath }) => {
     };    
       
     useEffect(() => {
-        // Initialize the autocomplete for each input when component mounts or updates
         locations.forEach((_, index) => initializeAutocomplete(index));
     });
 

@@ -43,7 +43,6 @@ const LoginSignUp = ({ onLogin }) => {
                 password: signupPassword
             });
             alert('Sign up successful. Please log in.');
-            // Clear signup form
             setSignupEmail('');
             setSignupPassword('');
             setConfirmPassword('');
