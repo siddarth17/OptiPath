@@ -1,7 +1,7 @@
 # OptiPath
 
 ## Overview
-OptiPath is a full-stack web application designed to solve the Traveling Salesman Problem (TSP) and recommend optimal routes for trips while also incorporating machine learning to detect suspicious travel informtion. This app offers an intuitive interface for users to plan optimal routes and ensures travel safety through advanced analytics.
+OptiPath is a full-stack web application designed to solve the Traveling Salesman Problem (TSP) and recommend optimal routes for trips while also incorporating machine learning to detect suspicious travel information. This app offers an intuitive interface for users to plan optimal routes and ensures travel safety through advanced analytics.
 
 ## Features
 - **TSP Solver**: Implements an efficient recursive dynamic programming algorithm to find the optimal route between multiple locations.
